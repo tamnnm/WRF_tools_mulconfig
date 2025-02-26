@@ -1,0 +1,41 @@
+Metadata-Version: 2.2
+Name: wrf_tools
+Version: 0.1.0
+Summary: Tools for processing WRF and downloading ERA5 data
+Home-page: https://github.com/your-repo/wrf_tools
+Author: Quang-Van Doan
+Author-email: doan.van.gb@...
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Requires-Dist: numpy
+Requires-Dist: xarray
+Requires-Dist: pandas
+Requires-Dist: cdsapi
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# wrf_tools
+
+A Python library to process WRF simulations and download ERA5 data.
+
+## Installation
+
+```bash
+pip install wrf_tools
+```
+
+## Usage
+
+```python
+from wrf_tools import WRFProcessor, ERA5DataDownloader
+```
