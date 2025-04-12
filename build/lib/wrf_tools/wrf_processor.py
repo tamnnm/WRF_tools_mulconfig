@@ -1,4 +1,4 @@
-import os
+import os, sys
 import shutil
 import subprocess
 import glob
@@ -190,13 +190,17 @@ class WRFProcessor:
     def get_met_em_info(self):
         try:
             namelist = {}
-            ds = xr.open_dataset(sorted(glob.glob(os.path.join(self.run_dir, 'met_em*.nc')))[0])
+            met_em_files = sorted(glob.glob(os.path.join(self.run_dir, 'met_em*.nc')))
+            if len(met_em_files) == 0: sys.exit()
+            ds = xr.open_dataset(met_em_files[0])
             namelist['num_metgrid_levels'] = str(ds.dims['num_metgrid_levels'])
             namelist['num_land_cat'] = str(ds.LANDUSEF.shape[1])
             namelist['num_metgrid_soil_levels'] = str(ds.dims['num_st_layers'])
             return namelist
         except:
             print('Errors: No met_em files')
+            return {}
+            sys.exit()
             
 
     def run_ungrib_era5(self, date_range):
